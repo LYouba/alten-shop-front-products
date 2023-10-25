@@ -1,0 +1,15 @@
+<div class="products-content" *ngIf="products; else elseBlock">
+  <!-- template -->
+  <ng-template #productTemplate let-product let-display="display">
+    <app-product [product]="product" [display]="display"></app-product>
+  </ng-template>
+
+  <!-- list products-->
+  <div class="list-content">
+    <app-list #list [items]="products" [gridItemTemplate]="productTemplate" [listItemTemplate]="productTemplate">
+    </app-list>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <span>Chargement en cours ...</span>
+</ng-template>

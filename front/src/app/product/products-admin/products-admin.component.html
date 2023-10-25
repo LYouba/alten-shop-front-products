@@ -1,0 +1,14 @@
+<div class="products-admin-content" *ngIf="products; else elseBlock">
+    <!-- list products-->
+    <app-table
+        [data]="products"
+        [entity]="entity"
+        [selectable]="true"
+        [config]="config"
+        (deleted)="deleteProduct($event)"
+        (saved)="saveProduct($event)">
+    </app-table>
+</div>
+<ng-template #elseBlock>
+    <span>Chargement en cours ...</span>
+</ng-template>
